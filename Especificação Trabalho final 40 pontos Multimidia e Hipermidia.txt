@@ -1,0 +1,17 @@
+TRABALHO FINAL 40 PONTOS
+MULTIMÍDIA E HIPERMÍDIA:
+
+*Pensar em uma boa aplicação;
+*O projeto sera feito em equipes de até 4 pessoas;
+*40 pontos,20 projeto, 20 apresentação, até dia 25 enviar para João;
+*Na entrega gerar um .zip com todos os arquivos importantes do projeto;
+*Na apresentação 1 aluno compartilha a tela e o professor faz 1 pergunta por aluno sobre trechos de código específicos;
+
+*Criar uma playlist de vídeos para o projeto;
+*Interface gráfica sofisticada tera grande peso nos pontos;
+*Além do video tocando é preciso ter na tela uma imagem vetorial, para cada video da playlist haverá um objeto vetorial diferente, deve haver um objeto vetorial o qual possa ser clicável ou haver um botão que controla o objeto vetorial para exibir informação textual sobre o objeto vetorial;
+*Recomendado pelo menos 6 vídeos na playlist;
+*Reunir video do YouTube, objeto vetorial, informação textual, todas as coisas devem estar relacionadas;
+*O projeto deve reunir todos os códigos fonte apresentados na disciplina com uma interface gráfica bem feita;
+*Respostas devem ser coerentes com projeto;
+*Tudo pode ser implementado em 1 ou mais códigos fonte.

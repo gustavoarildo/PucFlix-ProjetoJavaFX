@@ -135,43 +135,19 @@ public class PucflixPlus extends Application {
         //A imagem vetorial que sra usada como icone tem seus valores ajustados
         SVGPath bluray;
         bluray = new SVGPath();
-        bluray.setContent(svgPathBluray);
-        bluray.setFill(Color.BLUE);
-        bluray.setScaleX(0.5);
-        bluray.setScaleY(0.5);
-        bluray.setOpacity(1.0);
-        bluray.setStrokeWidth(2);
-        bluray.setStroke(Color.BLACK);
+        defineAtributosSVGPATH(bluray, svgPathBluray, Color.BLUE);
 
         SVGPath chapel;
         chapel = new SVGPath();
-        chapel.setContent(svgPathChapel);
-        chapel.setFill(Color.CHOCOLATE);
-        chapel.setScaleX(0.5);
-        chapel.setScaleY(0.5);
-        chapel.setOpacity(1.0);
-        chapel.setStrokeWidth(2);
-        chapel.setStroke(Color.BLACK);
+        defineAtributosSVGPATH(chapel, svgPathChapel, Color.CHOCOLATE);
 
         SVGPath bluraycomedia;
         bluraycomedia = new SVGPath();
-        bluraycomedia.setContent(svgPathBluraycomedia);
-        bluraycomedia.setFill(Color.BLUE);
-        bluraycomedia.setScaleX(0.5);
-        bluraycomedia.setScaleY(0.5);
-        bluraycomedia.setOpacity(1.0);
-        bluraycomedia.setStrokeWidth(2);
-        bluraycomedia.setStroke(Color.BLACK);
+        defineAtributosSVGPATH(bluraycomedia, svgPathBluraycomedia, Color.BLUE);
 
         SVGPath chapelcomedia;
         chapelcomedia = new SVGPath();
-        chapelcomedia.setContent(svgPathChapelcomedia);
-        chapelcomedia.setFill(Color.CHOCOLATE);
-        chapelcomedia.setScaleX(0.5);
-        chapelcomedia.setScaleY(0.5);
-        chapelcomedia.setOpacity(1.0);
-        chapelcomedia.setStrokeWidth(2);
-        chapelcomedia.setStroke(Color.BLACK);
+        defineAtributosSVGPATH(chapelcomedia, svgPathChapelcomedia, Color.CHOCOLATE);
 
         ///*
         //Um botao responsavel pelo texto na tela de aventura tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
@@ -196,24 +172,20 @@ public class PucflixPlus extends Application {
         labelAventura1 = new Label("For the first time ever, own all 4 Indiana Jones movies individually on Blu-ray™ & Digital HD! \n"
                 + "Also available as The Complete Adventures on Blu-ray™ & Digital HD.");
         Font font = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
-        labelAventura1.setFont(font);
-        labelAventura1.setTextFill(Color.BROWN);
+        defineFonteCorDaLabel(font, Color.BROWN, labelAventura1);
 
         labelAventura2 = new Label("Henry Jones, Jr., ou simplesmente Indiana Jones, \né um personagem da série de filmes Indiana Jones, \ncriado por George Lucas e Steven Spielberg, \nGeorge lucas criou o personagem em homenagem aos heróis \nde séries e filmes de ação dos anos 1930. \nO personagem apareceu pela primeira vez em 1981 \nem Indiana Jones e Os Caçadores da Arca Perdida, \ndirigido por Steven Spielberg e vivido por Harrison Ford. \nO personagem também aparece em séries de televisão.");
         Font font2 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
-        labelAventura2.setFont(font2);
-        labelAventura2.setTextFill(Color.BROWN);
+        defineFonteCorDaLabel(font2, Color.BROWN, labelAventura2);
 
         labelComedia1 = new Label("For the first time ever, own all 4 Indiana Jones movies individually on Blu-ray™ & Digital HD! \n"
                 + "Also available as The Complete Adventures on Blu-ray™ & Digital HD.");
         Font font3 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
-        labelComedia1.setFont(font3);
-        labelComedia1.setTextFill(Color.BROWN);
+        defineFonteCorDaLabel(font3, Color.BROWN, labelComedia1);
 
         labelComedia2 = new Label("Henry Jones, Jr., ou simplesmente Indiana Jones, \né um personagem da série de filmes Indiana Jones, \ncriado por George Lucas e Steven Spielberg, \nGeorge lucas criou o personagem em homenagem aos heróis \nde séries e filmes de ação dos anos 1930. \nO personagem apareceu pela primeira vez em 1981 \nem Indiana Jones e Os Caçadores da Arca Perdida, \ndirigido por Steven Spielberg e vivido por Harrison Ford. \nO personagem também aparece em séries de televisão.");
         Font font4 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
-        labelComedia2.setFont(font4);
-        labelComedia2.setTextFill(Color.BROWN);
+        defineFonteCorDaLabel(font4, Color.BROWN, labelComedia2);
 
         //O botao de confirmação de troca de canal apos o genero ser selecionado no comboBox, o primeiro passo na execução da aplicaçao
         botao = new Button("Mudar Canal");
@@ -257,43 +229,10 @@ public class PucflixPlus extends Application {
             if (painel.getChildren().contains(imagemLOGO2)) {
                 painel.getChildren().remove(imagemLOGO2);
             }
-            if (painel.getChildren().contains(botaoAventura1)) {
-                painel.getChildren().remove(botaoAventura1);
-            }
-            if (painel.getChildren().contains(labelAventura1)) {
-                painel.getChildren().remove(labelAventura1);
-            }
-            if (painel.getChildren().contains(botaoAventura2)) {
-                painel.getChildren().remove(botaoAventura2);
-            }
-            if (painel.getChildren().contains(labelAventura2)) {
-                painel.getChildren().remove(labelAventura2);
-            }
-            if (painel.getChildren().contains(bluray)) {
-                painel.getChildren().remove(bluray);
-            }
-            if (painel.getChildren().contains(chapel)) {
-                painel.getChildren().remove(chapel);
-            }
-            
-            if (painel.getChildren().contains(botaoComedia1)) {
-                painel.getChildren().remove(botaoComedia1);
-            }
-            if (painel.getChildren().contains(labelComedia1)) {
-                painel.getChildren().remove(labelComedia1);
-            }
-            if (painel.getChildren().contains(botaoComedia2)) {
-                painel.getChildren().remove(botaoComedia2);
-            }
-            if (painel.getChildren().contains(labelComedia2)) {
-                painel.getChildren().remove(labelComedia2);
-            }
-            if (painel.getChildren().contains(bluraycomedia)) {
-                painel.getChildren().remove(bluraycomedia);
-            }
-            if (painel.getChildren().contains(chapelcomedia)) {
-                painel.getChildren().remove(chapelcomedia);
-            }
+
+            removeBotoesLabelsSeExistem(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2);
+
+            removeBotoesLabelsSeExistem(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2);
 
             //Conjunto de ifs que verificam o conteudo selecionado no comboBox e definem um indice para lista de trailers com base na seleçao
             if (((String) comboUm.getSelectionModel().getSelectedItem()).equals("Aventura")) {
@@ -329,53 +268,13 @@ public class PucflixPlus extends Application {
             //Ifs que serão acionados de acordo com o valor atual de indice,
             if (indice == 0) {
 
-                ///*
-                //Se indice igual a 0, aventura foi selecionado e o botão de aventura estara disponivel
-                painel.getChildren().add(botaoAventura1);
-                botaoAventura1.setTranslateX(650);
-                botaoAventura1.setTranslateY(100);
-
-                painel.getChildren().add(botaoAventura2);
-                botaoAventura2.setTranslateX(650);
-                botaoAventura2.setTranslateY(250);
-
-                //Se o botao de aventura for precionado uma informação textual é exibida atravez de um label, caso o label ja esteja no painel ele é retirado
-                botaoAventura1.setOnAction((ActionEvent e) -> {
-                    //System.out.println("botao funciona");
-                    if (painel.getChildren().contains(labelAventura2)) {
-                        painel.getChildren().remove(labelAventura2);
-                        chapel.setFill(Color.BURLYWOOD);
-                    }
-                    if (painel.getChildren().contains(labelAventura1)) {
-                        painel.getChildren().remove(labelAventura1);
-                        bluray.setFill(Color.CORNFLOWERBLUE);
-                    } else {
-                        painel.getChildren().add(labelAventura1);
-                        labelAventura1.setTranslateX(60);
-                        labelAventura1.setTranslateY(400);
-                        bluray.setFill(Color.BLUE);
-                    }
-                });
-
-                botaoAventura2.setOnAction((ActionEvent e) -> {
-                    //System.out.println("botao funciona");
-                    if (painel.getChildren().contains(labelAventura1)) {
-                        painel.getChildren().remove(labelAventura1);
-                        bluray.setFill(Color.CORNFLOWERBLUE);
-                    }
-                    if (painel.getChildren().contains(labelAventura2)) {
-                        painel.getChildren().remove(labelAventura2);
-                        chapel.setFill(Color.BURLYWOOD);
-                    } else {
-                        painel.getChildren().add(labelAventura2);
-                        labelAventura2.setTranslateX(60);
-                        labelAventura2.setTranslateY(400);
-                        chapel.setFill(Color.CHOCOLATE);
-                    }
-                });
-                //*/
+                adiciona2BotoesInterativosNoPainel(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2, Color.BLUE, Color.CORNFLOWERBLUE, Color.CHOCOLATE, Color.BURLYWOOD, bluray, chapel);
 
                 /*
+                
+                //*/
+
+ /*
                 //
                 //
                 //
@@ -408,7 +307,8 @@ public class PucflixPlus extends Application {
             }
             if (indice == 1) {
 
-                ///*
+                adiciona2BotoesInterativosNoPainel(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2, Color.BLUE, Color.CORNFLOWERBLUE, Color.CHOCOLATE, Color.BURLYWOOD, bluraycomedia, chapelcomedia);
+                /*
                 //Se indice igual a 0, aventura foi selecionado e o botão de aventura estara disponivel
                 painel.getChildren().add(botaoComedia1);
                 botaoComedia1.setTranslateX(650);
@@ -473,5 +373,83 @@ public class PucflixPlus extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public void defineAtributosSVGPATH(SVGPath svgpath, String stringConteudoSVG, Color cor) {
+        svgpath.setContent(stringConteudoSVG);
+        svgpath.setFill(cor);
+        svgpath.setScaleX(0.5);
+        svgpath.setScaleY(0.5);
+        svgpath.setOpacity(1.0);
+        svgpath.setStrokeWidth(2);
+        svgpath.setStroke(Color.BLACK);
+    }
+
+    public void defineFonteCorDaLabel(Font fonte, Color cor, Label label) {
+        label.setFont(fonte);
+        label.setTextFill(cor);
+    }
+
+    public void removeBotoesLabelsSeExistem(Button botao1, Button botao2, Label label1, Label label2) {
+        if (painel.getChildren().contains(botao1)) {
+            painel.getChildren().remove(botao1);
+        }
+        if (painel.getChildren().contains(label1)) {
+            painel.getChildren().remove(label1);
+        }
+        if (painel.getChildren().contains(botao2)) {
+            painel.getChildren().remove(botao2);
+        }
+        if (painel.getChildren().contains(label2)) {
+            painel.getChildren().remove(label2);
+        }
+    }
+
+    public void adiciona2BotoesInterativosNoPainel(Button botao1, Button botao2, Label label1, Label label2, Color botao1cor1, Color botao1cor2, Color botao2cor1, Color botao2cor2, SVGPath iconeBotao1SVG, SVGPath iconeBotao2SVG) {
+        ///*
+        //Se indice igual a 0, aventura foi selecionado e o botão de aventura estara disponivel
+        painel.getChildren().add(botao1);
+        botao1.setTranslateX(650);
+        botao1.setTranslateY(100);
+
+        painel.getChildren().add(botao2);
+        botao2.setTranslateX(650);
+        botao2.setTranslateY(250);
+
+        //Se o botao de aventura for precionado uma informação textual é exibida atravez de um label, caso o label ja esteja no painel ele é retirado
+        botao1.setOnAction((ActionEvent e) -> {
+            //System.out.println("botao funciona");
+            if (painel.getChildren().contains(label2)) {
+                painel.getChildren().remove(label2);
+                iconeBotao2SVG.setFill(botao2cor2);
+            }
+            if (painel.getChildren().contains(label1)) {
+                painel.getChildren().remove(label1);
+                iconeBotao1SVG.setFill(botao1cor2);
+            } else {
+                painel.getChildren().add(label1);
+                label1.setTranslateX(60);
+                label1.setTranslateY(400);
+                iconeBotao1SVG.setFill(botao1cor1);
+            }
+        });
+
+        botao2.setOnAction((ActionEvent e) -> {
+            //System.out.println("botao funciona");
+            if (painel.getChildren().contains(label1)) {
+                painel.getChildren().remove(label1);
+                iconeBotao1SVG.setFill(botao1cor2);
+            }
+            if (painel.getChildren().contains(label2)) {
+                painel.getChildren().remove(label2);
+                iconeBotao2SVG.setFill(botao2cor2);
+            } else {
+                painel.getChildren().add(label2);
+                label2.setTranslateX(60);
+                label2.setTranslateY(400);
+                iconeBotao2SVG.setFill(botao2cor1);
+            }
+        });
+        //*/
     }
 }

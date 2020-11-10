@@ -95,6 +95,7 @@ public class PucflixPlus extends Application {
     private String URLVIDEO;
     private String URLAUDIO;
     Button botaoTocaAudio;
+    Label labelTocaAudio;
     int indice;
 
     @Override
@@ -350,6 +351,10 @@ public class PucflixPlus extends Application {
         labelFiccao2 = new Label("Homem de Ferro, Thor, Hulk e os Vingadores se unem \npara combater seu inimigo mais poderoso, o maligno Thanos. \nEm uma missão para coletar todas as seis pedras infinitas, \nThanos planeja usá-las para infligir sua vontade maléfica sobre a realidade.");
         Font font12 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font12, Color.BROWN, labelFiccao2);
+        
+        labelTocaAudio = new Label("OUVIR SINOPSE");
+        Font font13 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 10);
+        defineFonteCorDaLabel(font13, Color.BROWN, labelTocaAudio);
 
         //O botao de confirmação de troca de canal apos o genero ser selecionado no comboBox, o primeiro passo na execução da aplicaçao
         botao = new Button("Mudar Canal");
@@ -407,6 +412,9 @@ public class PucflixPlus extends Application {
             if (painel.getChildren().contains(botaoTocaAudio)) {
                 painel.getChildren().remove(botaoTocaAudio);
             }
+            if (painel.getChildren().contains(labelTocaAudio)) {
+                painel.getChildren().remove(labelTocaAudio);
+            }
 
             //botaoTocaAudio
             audioAventura1.stop();
@@ -459,6 +467,10 @@ public class PucflixPlus extends Application {
             painel.getChildren().add(imagemLOGO2);
             imagemLOGO2.setTranslateX(700);
             imagemLOGO2.setTranslateY(0);
+            
+            painel.getChildren().add(labelTocaAudio);
+            labelTocaAudio.setTranslateX(680);
+            labelTocaAudio.setTranslateY(50);
 
             //Ifs que serão acionados de acordo com o valor atual de indice,
             if (indice == 0) {

@@ -14,7 +14,6 @@ https://www.youtube.com/watch?v=6ZfuNTqbHE8  //guerra infinita //ficção
 package pucflixplus;
 //Importaçoes
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -22,7 +21,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -52,7 +50,6 @@ public class PucflixPlus extends Application {
     ObservableList<String> opcoesUm;
     ComboBox comboUm;
     Image imagem;
-    //ImageView imagemLOGO;
     ImageView imagemLOGO2;
     Button botao;
     Button botaoAventura1;
@@ -151,95 +148,106 @@ public class PucflixPlus extends Application {
                 "Aventura", "Comedia", "Suspence", "Romance", "Terror", "Ficção");
         comboUm = new ComboBox(opcoesUm);
 
-        //Recupera a imagem matricial de logotipo da pasta de recursos do projeto, com largura em 600 e aspecto de proporçoes preservado
+        //Recupera a imagem matricial de logotipo da pasta de recursos do projeto, com largura em 100 e aspecto de proporçoes preservado
         URL url = getClass().getResource("/PucFlixImagem.png");
         imagem = new Image(url.toString());
-        //imagemLOGO = new ImageView(imagem);
-        //imagemLOGO.setFitWidth(600);
-        //imagemLOGO.setPreserveRatio(true);
-
-        //A imagem matricial de logotipo é utilizada novamente em tamanho menor no menu superior assim valorizando a interface grafica
         imagemLOGO2 = new ImageView(imagem);
         imagemLOGO2.setFitWidth(100);
         imagemLOGO2.setPreserveRatio(true);
 
+        //Recupera o video intrudutorio da pasta de recursos do projeto, a exibição do video sera feita pelo mediaView
         URL urlVIDEO = getClass().getResource("/Pucflix.mp4");
         URLVIDEO = urlVIDEO.toString();
         Media video = new Media(URLVIDEO);
         final MediaPlayer mediaPlayer = new MediaPlayer(video);
         MediaView mediaView = new MediaView(mediaPlayer);
 
+        //Recupera o audio contendo a sinopse do filme de aventura da pasta de recursos do projeto
         URL urlAUDIO = getClass().getResource("/audioAventura1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioAventura1 = new AudioClip(URLAUDIO);
 
+        //Recupera o audio contendo a sinopse do filme de comedia da pasta de recursos do projeto
         urlAUDIO = getClass().getResource("/audioComedia1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioComedia1 = new AudioClip(URLAUDIO);
 
+        //Recupera o audio contendo a sinopse do filme de suspence da pasta de recursos do projeto
         urlAUDIO = getClass().getResource("/audioSuspence1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioSuspence1 = new AudioClip(URLAUDIO);
 
+        //Recupera o audio contendo a sinopse do filme de romance da pasta de recursos do projeto
         urlAUDIO = getClass().getResource("/audioRomance1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioRomance1 = new AudioClip(URLAUDIO);
 
+        //Recupera o audio contendo a sinopse do filme de terror da pasta de recursos do projeto
         urlAUDIO = getClass().getResource("/audioTerror1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioTerror1 = new AudioClip(URLAUDIO);
 
+        //Recupera o audio contendo a sinopse do filme de ficcao da pasta de recursos do projeto
         urlAUDIO = getClass().getResource("/audioFiccao1.mp3");
         URLAUDIO = urlAUDIO.toString();
         AudioClip audioFiccao1 = new AudioClip(URLAUDIO);
 
-        // URLAUDIO = "file:///c:/temp/audio.mp3";
-        //AudioClip audio = null; //= new AudioClip(URLAUDIO);
-        //A imagem vetorial que sra usada como icone tem seus valores ajustados
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath bluray;
         bluray = new SVGPath();
         defineAtributosSVGPATH(bluray, svgPathBluray, Color.BLUE, (float) 0.5);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath chapel;
         chapel = new SVGPath();
         defineAtributosSVGPATH(chapel, svgPathChapel, Color.CHOCOLATE, (float) 0.5);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath bolaFutebol;
         bolaFutebol = new SVGPath();
         defineAtributosSVGPATH(bolaFutebol, svgPathBolaFutebol, Color.BLACK, (float) 0.015);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath tesoura;
         tesoura = new SVGPath();
         defineAtributosSVGPATH(tesoura, svgPathTesoura, Color.GREEN, (float) 0.4);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath pessoas;
         pessoas = new SVGPath();
         defineAtributosSVGPATH(pessoas, svgPathPessoas, Color.RED, (float) 0.3);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath tenda;
         tenda = new SVGPath();
         defineAtributosSVGPATH(tenda, svgPathTenda, Color.YELLOW, (float) 1.0);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath coracao;
         coracao = new SVGPath();
         defineAtributosSVGPATH(coracao, svgPathCoracao, Color.SPRINGGREEN, (float) 0.3);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath casal;
         casal = new SVGPath();
         defineAtributosSVGPATH(casal, svgPathCasal, Color.DEEPPINK, (float) 0.08);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath crianca;
         crianca = new SVGPath();
         defineAtributosSVGPATH(crianca, svgPathCrianca, Color.DODGERBLUE, (float) 0.4);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath fantasma;
         fantasma = new SVGPath();
         defineAtributosSVGPATH(fantasma, svgPathFantasma, Color.DARKVIOLET, (float) 0.5);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath manopla;
         manopla = new SVGPath();
         defineAtributosSVGPATH(manopla, svgPathManopla, Color.GOLD, (float) 0.05);
 
+        //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath estrela;
         estrela = new SVGPath();
         defineAtributosSVGPATH(estrela, svgPathEstrela, Color.WHITE, (float) 0.5);
@@ -250,51 +258,63 @@ public class PucflixPlus extends Application {
         botaoAventura1 = new Button();
         botaoAventura1.setGraphic(graphic);
 
+        //Um botao responsavel pelo texto na tela de aventura tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic2 = new Group(chapel);
         botaoAventura2 = new Button();
         botaoAventura2.setGraphic(graphic2);
 
+        //Um botao responsavel pelo texto na tela de comedia tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic3 = new Group(bolaFutebol);
         botaoComedia1 = new Button();
         botaoComedia1.setGraphic(graphic3);
 
+        //Um botao responsavel pelo texto na tela de comedia tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic4 = new Group(tesoura);
         botaoComedia2 = new Button();
         botaoComedia2.setGraphic(graphic4);
 
+        //Um botao responsavel pelo texto na tela de suspence tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic5 = new Group(pessoas);
         botaoSuspence1 = new Button();
         botaoSuspence1.setGraphic(graphic5);
 
+        //Um botao responsavel pelo texto na tela de suspence tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic6 = new Group(tenda);
         botaoSuspence2 = new Button();
         botaoSuspence2.setGraphic(graphic6);
 
+        //Um botao responsavel pelo texto na tela de romance tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic7 = new Group(coracao);
         botaoRomance1 = new Button();
         botaoRomance1.setGraphic(graphic7);
 
+        //Um botao responsavel pelo texto na tela de romance tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic8 = new Group(casal);
         botaoRomance2 = new Button();
         botaoRomance2.setGraphic(graphic8);
 
+        //Um botao responsavel pelo texto na tela de terror tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic9 = new Group(crianca);
         botaoTerror1 = new Button();
         botaoTerror1.setGraphic(graphic9);
 
+        //Um botao responsavel pelo texto na tela de terror tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic10 = new Group(fantasma);
         botaoTerror2 = new Button();
         botaoTerror2.setGraphic(graphic10);
 
+        //Um botao responsavel pelo texto na tela de ficcao tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic11 = new Group(manopla);
         botaoFiccao1 = new Button();
         botaoFiccao1.setGraphic(graphic11);
 
+        //Um botao responsavel pelo texto na tela de ficcao tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
         Group graphic12 = new Group(estrela);
         botaoFiccao2 = new Button();
         botaoFiccao2.setGraphic(graphic12);
         //*/
 
+        //Um botao responsavel pela reproducao do audio das sinopses dos filmes
         botaoTocaAudio = new Button(">");
 
         //O texto que sera exibido ao clicar no botaoAventura1, assim como suas configuraçoes
@@ -303,26 +323,32 @@ public class PucflixPlus extends Application {
         Font font = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font, Color.BROWN, labelAventura1);
 
+        //O texto que sera exibido ao clicar no botaoAventura2, assim como suas configuraçoes
         labelAventura2 = new Label("Henry Jones, Jr., ou simplesmente Indiana Jones, \né um personagem da série de filmes Indiana Jones, \ncriado por George Lucas e Steven Spielberg, \nGeorge lucas criou o personagem em homenagem aos heróis \nde séries e filmes de ação dos anos 1930. \nO personagem apareceu pela primeira vez em 1981 \nem Indiana Jones e Os Caçadores da Arca Perdida, \ndirigido por Steven Spielberg e vivido por Harrison Ford. \nO personagem também aparece em séries de televisão.");
         Font font2 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font2, Color.BROWN, labelAventura2);
 
+        //O texto que sera exibido ao clicar no botaoComedia1, assim como suas configuraçoes
         labelComedia1 = new Label("O Sport Club Corinthians Paulista (mais conhecido como Corinthians, \ne pelos apelidos de \"Timão\" e \"Coringão\") \né um clube multiesportivo brasileiro da cidade de São Paulo, \ncapital do estado homônimo. \nFoi fundado como uma equipe de futebol no dia 1 de setembro de 1910 \npor um grupo de operários do bairro Bom Retiro. \nSeu nome foi inspirado no Corinthian FC de Londres, \nque excursionava pelo Brasil, \nsendo chamado pela imprensa brasileira da época de Corinthian's team.");
         Font font3 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font3, Color.BROWN, labelComedia1);
 
+        //O texto que sera exibido ao clicar no botaoComedia2, assim como suas configuraçoes
         labelComedia2 = new Label("O barbeiro Manoel, apelidado de \"Seu Mané\", morador da Vila Maria Zélia, \nna cidade de São Paulo é um torcedor fanático do Corinthians Paulista, \nque faz de tudo pelo seu time de coração, enlouquecendo sua família. \nEntra em conflito com seu vizinho italiano e palmeirense, \nLeontino. Em uma cena, há uma guerra de hinos dos dois clubes. \nMané faz promessas malucas e orações a São Jorge, \npassa sofrimentos e profere insultos na arquibancada. \nEm seu salão, \ncorta o cabelo e faz a barba de graça de quem for corintiano \ne apresentar carteirinha do clube.");
         Font font4 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font4, Color.BROWN, labelComedia2);
 
+        //O texto que sera exibido ao clicar no botaoSuspence1, assim como suas configuraçoes
         labelSuspence1 = new Label("O longa participou do Festival Internacional de Cinema Independente de Buenos Aires 2017, \nonde foi indicado ao prêmio de Melhor Filme na categoria internacional.");
         Font font5 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font5, Color.BROWN, labelSuspence1);
 
+        //O texto que sera exibido ao clicar no botaoSuspence2, assim como suas configuraçoes
         labelSuspence2 = new Label("Ian e Samantha viajam para relaxar alguns dias num parque natural. \nO casal encontra um acampamento isolado com apenas um carro e uma barraca vazia. \nÀ medida que anoitece e ninguém retorna, \nos dois passam a se preocupar. \nE quando descobrem uma criança vagando pela floresta, \neles mergulham numa terrível cadeia de acontecimentos, \nque vai levá-los até o seu limite.");
         Font font6 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font6, Color.BROWN, labelSuspence2);
 
+        //O texto que sera exibido ao clicar no botaoRomance1, assim como suas configuraçoes
         labelRomance1 = new Label("Título original: " + "Endless\n"
                 + "De: " + "Scott Speer\n"
                 + "Com: " + "Famke Janssen, Alexandra Shipp, Ian Tracey\n"
@@ -332,26 +358,32 @@ public class PucflixPlus extends Application {
         Font font7 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font7, Color.BROWN, labelRomance1);
 
+        //O texto que sera exibido ao clicar no botaoRomance2, assim como suas configuraçoes
         labelRomance2 = new Label("Quando Riley (Alexandra Shipp) e Chris (Nicholas Hamilton) \nsão separados por um trágico acidente de carro, \nRiley se culpa pela morte de seu namorado enquanto Chris fica preso no limbo. \nMilagrosamente, os dois encontram uma maneira de se conectar. \nEm uma história de amor que transcende a vida e a morte, \nRiley e Chris são forçados a aprender a lição mais difícil de todas: \ndeixar ir.");
         Font font8 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font8, Color.BROWN, labelRomance2);
 
+        //O texto que sera exibido ao clicar no botaoTerror1, assim como suas configuraçoes
         labelTerror1 = new Label("Com 95% de aprovação no Rotten Tomatoes, a crítica define Amizade Maldita como \n“uma entrada fascinante no mundo dos amigos imaginários do mal”. O filme já recebeu 9 \nprêmios em festivais internacionais, incluindo o de Filme Mais Assustador no Popcorn Frights 2019 \ne o de Melhor Filme no Sin City Horror Fest, premiação especializada em filmes de terror. \nEm entrevista, o diretor afirma que sofria de ansiedade quando criança. \n“Eu tinha medo de ficar sozinho, medo de ir para a escola, eu tinha medo de fazer qualquer \ncoisa. […] Essa experiência me ajudou a trazer um pouco de mim para Amizade Maldita, \ncom pais incapazes de saber lidar com algo assim. \nQuando não é algo que você consegue explicar ou ensinar, \ne você se sente excluído, o que você pode fazer?”");
         Font font9 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font9, Color.BROWN, labelTerror1);
 
+        //O texto que sera exibido ao clicar no botaoTerror2, assim como suas configuraçoes
         labelTerror2 = new Label("Kevin (Sean Rogerson) e Beth (Keegan Connor Tracy) notam que seu filho de oito anos, \nJosh (Jett Klyne), tem passado bastante tempo brincando com um novo amigo imaginário, \nchamado Z. O que a princípio parece uma relação inofensiva, \nrapidamente se transforma em algo destrutivo e perigoso. \nÉ quando Beth começa a desvendar o seu próprio passado, \nque ela descobre que Z pode não estar apenas na imaginação do filho.");
         Font font10 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font10, Color.BROWN, labelTerror2);
 
+        //O texto que sera exibido ao clicar no botaoFiccao1, assim como suas configuraçoes
         labelFiccao1 = new Label("Até 13 de setembro de 2018 Avengers: Infinity War arrecadou 678,8 milhões de dólares \nnos Estados Unidos e Canadá e 1300 milhões de dólares em outros territórios, \ntotalizando US$ 2 bilhões. É a quinta produção da história do cinema, \ne a primeira do gênero super-herói, a ultrapassar tal marca. \nEm abril de 2019, estreou a continuação Avengers: Endgame, \nque superou ainda mais seu antecessor, \narrecadando 1200 milhões de dólares no primeiro final de semana de estreia, \ne 2200 milhões de dólares em apenas onze dias, \nse tornando a maior estreia de toda a história do cinema, \nsuperando o até então implacável do cinema, Titanic, \nque ocupou a posição dentre os três maiores do mundo por quase duas décadas.");
         Font font11 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font11, Color.BROWN, labelFiccao1);
 
+        //O texto que sera exibido ao clicar no botaoFiccao2, assim como suas configuraçoes
         labelFiccao2 = new Label("Homem de Ferro, Thor, Hulk e os Vingadores se unem \npara combater seu inimigo mais poderoso, o maligno Thanos. \nEm uma missão para coletar todas as seis pedras infinitas, \nThanos planeja usá-las para infligir sua vontade maléfica sobre a realidade.");
         Font font12 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 14);
         defineFonteCorDaLabel(font12, Color.BROWN, labelFiccao2);
-        
+
+        //O texto que sera exibido ao lado do botao de tocar audio da sinopse
         labelTocaAudio = new Label("OUVIR SINOPSE");
         Font font13 = Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 10);
         defineFonteCorDaLabel(font13, Color.BROWN, labelTocaAudio);
@@ -360,12 +392,9 @@ public class PucflixPlus extends Application {
         botao = new Button("Mudar Canal");
         webVideo = new WebView();//WebView para o YouTube
 
-        //Painel da aplicação, cor personalizada e imagem de logo adicionada para enrriquecer a experiencia visual
+        //Painel da aplicação, cor personalizada
         painel = new Pane();
         painel.setStyle("-fx-background-color: #" + "FF0000");
-        //painel.getChildren().add(imagemLOGO);
-        //imagemLOGO.setTranslateX(100);
-        //imagemLOGO.setTranslateY(100);
 
         //ComboBox adicionado ao painel com a primeira opção selecionada por padrão, cordenada X e Y determinadas
         painel.getChildren().add(comboUm);
@@ -378,6 +407,7 @@ public class PucflixPlus extends Application {
         botao.setTranslateX(0);
         botao.setTranslateY(0);
 
+        //O video de introdução do PucFlix é adicionado ao painel
         painel.getChildren().add(mediaView);
         mediaView.setScaleX(1.5);
         mediaView.setPreserveRatio(true);
@@ -390,6 +420,7 @@ public class PucflixPlus extends Application {
         plano.setScene(cena);
         plano.show();
 
+        //O video de introdução da aplicação tem sua reprodução iniciada
         mediaPlayer.play();
 
         //Açoes que o botão mudar canal acionara
@@ -400,9 +431,6 @@ public class PucflixPlus extends Application {
             if (painel.getChildren().contains(webVideo)) {
                 painel.getChildren().remove(webVideo);
             }
-            //if (painel.getChildren().contains(imagemLOGO)) {
-            //    painel.getChildren().remove(imagemLOGO);
-            //}
             if (painel.getChildren().contains(imagemLOGO2)) {
                 painel.getChildren().remove(imagemLOGO2);
             }
@@ -416,7 +444,7 @@ public class PucflixPlus extends Application {
                 painel.getChildren().remove(labelTocaAudio);
             }
 
-            //botaoTocaAudio
+            //Durante a troca ou recarregamento de tela qualquer audio é parado
             audioAventura1.stop();
             audioComedia1.stop();
             audioSuspence1.stop();
@@ -425,16 +453,12 @@ public class PucflixPlus extends Application {
             audioFiccao1.stop();
             botaoTocaAudio.setText(">");
 
+            //Mesmo funcionamento dos ifs das linhas anteriores porem encadeado para economia de linhas
             removeBotoesLabelsSeExistem(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2);
-
             removeBotoesLabelsSeExistem(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2);
-
             removeBotoesLabelsSeExistem(botaoSuspence1, botaoSuspence2, labelSuspence1, labelSuspence2);
-
             removeBotoesLabelsSeExistem(botaoRomance1, botaoRomance2, labelRomance1, labelRomance2);
-
             removeBotoesLabelsSeExistem(botaoTerror1, botaoTerror2, labelTerror1, labelTerror2);
-
             removeBotoesLabelsSeExistem(botaoFiccao1, botaoFiccao2, labelFiccao1, labelFiccao2);
 
             //Conjunto de ifs que verificam o conteudo selecionado no comboBox e definem um indice para lista de trailers com base na seleçao
@@ -467,7 +491,8 @@ public class PucflixPlus extends Application {
             painel.getChildren().add(imagemLOGO2);
             imagemLOGO2.setTranslateX(700);
             imagemLOGO2.setTranslateY(0);
-            
+
+            //adicionado label ao lado do botao de ouvir audio da sinopse para alertar sobre função do botao
             painel.getChildren().add(labelTocaAudio);
             labelTocaAudio.setTranslateX(680);
             labelTocaAudio.setTranslateY(50);
@@ -475,84 +500,47 @@ public class PucflixPlus extends Application {
             //Ifs que serão acionados de acordo com o valor atual de indice,
             if (indice == 0) {
 
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioAventura1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2, Color.BLUE, Color.CORNFLOWERBLUE, Color.CHOCOLATE, Color.BURLYWOOD, bluray, chapel);
 
-                /*
-                painel.getChildren().add(botaoTocaAudio);
-                botaoTocaAudio.setTranslateX(650);
-                botaoTocaAudio.setTranslateY(50);
-
-                botaoTocaAudio.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent e) {
-                        if (audio.isPlaying()) {
-                            botaoTocaAudio.setText(">");
-                            audio.stop();
-                        } else {
-                            botaoTocaAudio.setText("||");
-                            audio.play();
-                        }
-                    }
-                });
-
-                //botaoTocaAudio
-                //*/
- /*
-                
-                //*/
-
- /*
-                //
-                //
-                //
-                painel.getChildren().add(cavalo);
-                cavalo.setTranslateX(1750);
-                cavalo.setTranslateY(-100);
-                //
-                //
-                //
-
-                //cavalo.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                //  @Override
-                //public void handle(MouseEvent e) {
-                //}
-                //}
-                //cavalo.setOnMouseClicked((ActionEvent e2) -> {
-                //});
-                //cavalo.setPickOnBounds(true); // allows click on transparent areas
-                //cavalo.setOnMouseClicked((MouseEvent e) -> {
-                //    System.out.println("Clicked!"); // change functionality
-                //});
-                // Mouse presssed handler
-                //cavalo.setOnMousePressed(new EventHandler<MouseEvent>() {
-                //  public void handle(MouseEvent me) {
-                // Store initial position
-                //}
-                //});
-                //imagemSVGclickavel = new ImageView(cavalo);
-                //*/
             }
             if (indice == 1) {
+
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioComedia1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2, Color.BLACK, Color.DARKGRAY, Color.GREEN, Color.LAWNGREEN, bolaFutebol, tesoura);
 
             }
             if (indice == 2) {
+
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioSuspence1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoSuspence1, botaoSuspence2, labelSuspence1, labelSuspence2, Color.RED, Color.PALEVIOLETRED, Color.YELLOW, Color.LIGHTYELLOW, pessoas, tenda);
 
             }
             if (indice == 3) {
+
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioRomance1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoRomance1, botaoRomance2, labelRomance1, labelRomance2, Color.SPRINGGREEN, Color.PALEGREEN, Color.DEEPPINK, Color.HOTPINK, coracao, casal);
             }
             if (indice == 4) {
+
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioTerror1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoTerror1, botaoTerror2, labelTerror1, labelTerror2, Color.DODGERBLUE, Color.DEEPSKYBLUE, Color.DARKVIOLET, Color.VIOLET, crianca, fantasma);
             }
             if (indice == 5) {
+
+                //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioFiccao1);
+                //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(botaoFiccao1, botaoFiccao2, labelFiccao1, labelFiccao2, Color.GOLD, Color.PALEGOLDENROD, Color.WHITE, Color.WHITESMOKE, manopla, estrela);
             }
 
@@ -564,6 +552,7 @@ public class PucflixPlus extends Application {
     }
 
     public void defineAtributosSVGPATH(SVGPath svgpath, String stringConteudoSVG, Color cor, float escalaXY) {
+        //Define alguns atributos de um svg como: seu conteudo, a cor deste conteudo, e seu tamanho, outros valores assumem valores padroes para a função
         svgpath.setContent(stringConteudoSVG);
         svgpath.setFill(cor);
         svgpath.setScaleX(escalaXY);
@@ -574,11 +563,13 @@ public class PucflixPlus extends Application {
     }
 
     public void defineFonteCorDaLabel(Font fonte, Color cor, Label label) {
+        //define a fonte e cor de uma label com uma chamada que ocupa uma linha só
         label.setFont(fonte);
         label.setTextFill(cor);
     }
 
     public void removeBotoesLabelsSeExistem(Button botao1, Button botao2, Label label1, Label label2) {
+        //remove botoes se eles estao presentes, uma unica chamada economiza todas essas linhas tornando o codigo mais limpo
         if (painel.getChildren().contains(botao1)) {
             painel.getChildren().remove(botao1);
         }
@@ -595,12 +586,12 @@ public class PucflixPlus extends Application {
 
     public void adiciona2BotoesInterativosNoPainel(Button botao1, Button botao2, Label label1, Label label2, Color botao1cor1, Color botao1cor2, Color botao2cor1, Color botao2cor2, SVGPath iconeBotao1SVG, SVGPath iconeBotao2SVG) {
         ///*
-        //Se indice igual a 0, aventura foi selecionado e o botão de aventura estara disponivel
-        painel.getChildren().add(botao1);
+        //de acordo com indice, um genero sempre é selecionado, a função é chamada com diferentes parametros relacionados ao conteudo e genero
+        painel.getChildren().add(botao1);//adiciona o primeiro botao ao painel
         botao1.setTranslateX(650);
         botao1.setTranslateY(100);
 
-        painel.getChildren().add(botao2);
+        painel.getChildren().add(botao2);//adiciona o segundo botao ao painel
         botao2.setTranslateX(650);
         botao2.setTranslateY(250);
 
@@ -608,21 +599,21 @@ public class PucflixPlus extends Application {
         botao1.setOnAction((ActionEvent e) -> {
             //System.out.println("botao funciona");
             if (painel.getChildren().contains(label2)) {
-                painel.getChildren().remove(label2);
-                iconeBotao2SVG.setFill(botao2cor2);
+                painel.getChildren().remove(label2);//se o outro botao estava exibido sua label antes de apertar esse, ela é removida
+                iconeBotao2SVG.setFill(botao2cor2);//um botao desliga o outro, o botao ativado tem sua label exibida e uma cor mais forte
             }
             if (painel.getChildren().contains(label1)) {
-                painel.getChildren().remove(label1);
-                iconeBotao1SVG.setFill(botao1cor2);
+                painel.getChildren().remove(label1);//um botao precionado duas vezes tem seu conteudo retirado e cor em tom mais apagado
+                iconeBotao1SVG.setFill(botao1cor2);//cor1 é mais forte, cor2 é mais apagado, para dar a impressao de precionado
             } else {
-                painel.getChildren().add(label1);
-                label1.setTranslateX(60);
+                painel.getChildren().add(label1);//quando um botao é precionado uma vez, ele assume uma cor forte e exibi o conteudo textual
+                label1.setTranslateX(60);//cordenadas da label
                 label1.setTranslateY(400);
-                iconeBotao1SVG.setFill(botao1cor1);
+                iconeBotao1SVG.setFill(botao1cor1);//o botao tem a cor do icone svg alterada
             }
         });
 
-        botao2.setOnAction((ActionEvent e) -> {
+        botao2.setOnAction((ActionEvent e) -> {//segue a mesma logica do botao 1 de forma inversa
             //System.out.println("botao funciona");
             if (painel.getChildren().contains(label1)) {
                 painel.getChildren().remove(label1);
@@ -642,19 +633,19 @@ public class PucflixPlus extends Application {
     }
 
     public void adicionaBotaoQueTocaAudio(Button botaoTocar, AudioClip audioTocavel) {
-        painel.getChildren().add(botaoTocar);
+        painel.getChildren().add(botaoTocar);//adiciona botao que inicia o audio da sinopse
         botaoTocar.setTranslateX(650);
         botaoTocar.setTranslateY(50);
 
         botaoTocar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                if (!audioTocavel.isPlaying()) {
+                if (!audioTocavel.isPlaying()) {//se audio nao esta tocando no momento que o botao é pressionado
                     botaoTocar.setText("||");
-                    audioTocavel.play();
-                } else {
+                    audioTocavel.play();//inicia o audio da sinopse do parametro
+                } else {//se audio esta tocando no momento que o botao foi precionado
                     botaoTocar.setText(">");
-                    audioTocavel.stop();
+                    audioTocavel.stop();//para o audio e ele volta para inicio do tempo de reprodução
                 }
             }
         });

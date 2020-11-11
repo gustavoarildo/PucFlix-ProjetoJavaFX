@@ -28,6 +28,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
@@ -52,29 +53,17 @@ public class PucflixPlus extends Application {
     Image imagem;
     ImageView imagemLOGO2;
     Button botao;
-    Button botaoAventura1;
     Label labelAventura1;
-    Button botaoAventura2;
     Label labelAventura2;
-    Button botaoComedia1;
     Label labelComedia1;
-    Button botaoComedia2;
     Label labelComedia2;
-    Button botaoSuspence1;
     Label labelSuspence1;
-    Button botaoSuspence2;
     Label labelSuspence2;
-    Button botaoRomance1;
     Label labelRomance1;
-    Button botaoRomance2;
     Label labelRomance2;
-    Button botaoTerror1;
     Label labelTerror1;
-    Button botaoTerror2;
     Label labelTerror2;
-    Button botaoFiccao1;
     Label labelFiccao1;
-    Button botaoFiccao2;
     Label labelFiccao2;
     String lista[];
     String svgPathBluray = "m213.9 1041.2c-57.433 0-104.03 46.598-104.03 104.03 0 57.433 46.598 104.06 104.03 104.06 57.433 0 104.06-46.629 104.06-104.06 0-57.433-46.629-104.03-104.06-104.03zm0 76.906c14.981 0.0001 27.156 12.144 27.156 27.125 0.00001 14.981-12.175 27.156-27.156 27.156s-27.125-12.175-27.125-27.156c-0.00001-14.981 12.144-27.125 27.125-27.125z";
@@ -89,8 +78,8 @@ public class PucflixPlus extends Application {
     String svgPathFantasma = "m 69.997,3.0979 c 5.635,-0.4969 11.435,1.5747 17.401,6.2149 5.966,4.4752 9.778,9.5292 11.436,15.164 1.16,4.143 3.236,11.601 6.216,22.373 0.16,1.326 0.66,3.564 1.49,6.712 1.82,-2.154 4.06,-6.297 6.71,-12.429 2.49,-5.635 4.89,-9.53 7.21,-11.684 2.32,-2.32 4.89,-3.48 7.71,-3.481 2.81,0.001 4.89,1.161 6.21,3.481 2.65,4.475 3.98,9.861 3.98,16.158 0,6.63 -1.82,16.408 -5.47,29.334 -3.48,12.762 -5.22,22.457 -5.22,29.089 0,6.46 1.08,10.77 3.23,12.92 1.33,1.5 3.9,2.57 7.71,3.24 4.47,0.66 7.87,1.74 10.19,3.23 1.82,1.49 3.65,3.89 5.47,7.21 2.49,4.47 3.89,7.21 4.23,8.2 2.81,3.98 4.22,7.62 4.22,10.94 0,6.46 -2.15,11.76 -6.46,15.91 -0.17,0.66 -0.17,1.16 0,1.49 -0.83,5.8 0.91,8.7 5.22,8.7 2.48,0 4.64,-1.24 6.46,-3.73 0.5,-1.32 1.16,-3.15 1.99,-5.47 1.49,-2.65 3.9,-3.56 7.21,-2.73 4.47,0.99 7.21,2.81 8.2,5.47 0.5,1.32 0.5,4.06 0,8.2 -0.16,1.33 -0.24,2.65 -0.24,3.98 0,2.15 0.24,3.89 0.74,5.22 l 2.24,0 c 0,-6.13 1.99,-9.2 5.96,-9.2 0.83,0.33 2.16,0.91 3.98,1.74 -0.16,-0.5 -2.32,-2.57 -6.46,-6.21 -2.98,-2.66 -4.48,-5.22 -4.48,-7.71 0,-2.98 2.74,-6.22 8.21,-9.7 4.31,-2.81 7.7,-3.89 10.19,-3.23 l 5.47,5.47 c 1.82,-0.83 3.23,-1.24 4.23,-1.24 1.82,0 2.73,1.41 2.73,4.22 0,4.48 -1.24,6.72 -3.73,6.72 -1.33,0 -3.4,-0.75 -6.21,-2.24 -2.82,-1.66 -4.48,-2.49 -4.98,-2.49 -0.33,0 -0.49,0.25 -0.49,0.75 0,1.16 1.16,3.4 3.48,6.71 2.48,3.81 3.97,6.38 4.47,7.71 l 0,1.74 c -0.33,0.83 -0.83,1.9 -1.49,3.23 l -1.99,6.46 c -0.99,3.48 -2.73,5.22 -5.22,5.22 -0.66,0 -2.65,-1.49 -5.97,-4.47 -0.66,1.66 -1.74,3.48 -3.23,5.47 -2.65,0.83 -6.54,1.16 -11.68,0.99 -5.3,-0.16 -8.37,-0.91 -9.2,-2.24 -0.16,-0.16 -0.74,-2.9 -1.74,-8.2 -1.32,2.98 -3.15,7.96 -5.47,14.92 -2.82,0.66 -5.38,0.99 -7.7,0.99 -10.28,0 -15.42,-3.48 -15.42,-10.44 0,-1.16 0.17,-2.82 0.5,-4.97 0.33,-2.32 0.5,-4.06 0.5,-5.22 0,-5.64 -1.99,-8.45 -5.97,-8.45 -1.32,0 -3.23,1.49 -5.72,4.47 -5.63,6.8 -9.86,10.61 -12.67,11.44 -1.66,0.49 -3.4,0.74 -5.23,0.74 -12.756,0 -29.909,-7.95 -51.454,-23.86 -18.893,-13.92 -31.323,-25.53 -37.289,-34.81 -1.16,-1.82 -2.071,-5.05 -2.734,-9.69 -0.663,-4.64 -1.409,-7.79 -2.238,-9.45 -1.16,-1.16 -2.569,-3.31 -4.226,-6.46 0.166,-2.16 0.166,-5.3 0,-9.448 -0.497,-1.326 -2.569,-3.812 -6.2146,-7.458 -3.646,-3.812 -5.6348,-6.795 -5.9662,-8.949 -0.1658,-0.995 0.9943,-4.641 3.4803,-10.939 1.6572,-4.143 3.646,-7.789 5.9665,-10.938 10.772,1.161 19.887,3.398 27.345,6.712 1.16,0.498 3.314,1.575 6.463,3.232 l -0.497,-8.203 5.469,-4.475 c 0.332,-0.994 0.083,-2.9 -0.746,-5.718 -0.663,-2.817 -0.994,-4.557 -0.994,-5.22 -0.166,-1.823 -0.249,-3.646 -0.249,-5.469 0,-8.287 1.492,-15.661 4.475,-22.125 3.812,-8.2863 9.364,-12.761 16.656,-13.424 m 0,4.4746 c -6.132,0.6631 -10.69,5.0554 -13.673,13.175 -2.32,6.132 -3.48,12.927 -3.48,20.385 0,10.938 2.403,23.119 7.209,36.543 1.16,3.48 5.552,13.673 13.176,30.574 0.994,3.15 2.817,6.96 5.469,11.44 1.988,1.16 4.971,1.66 8.949,1.49 3.812,-0.17 6.463,-0.83 7.955,-1.99 l 0,-0.74 c 0.331,-0.34 0.911,-1.25 1.74,-2.74 -0.166,-1.99 -0.829,-6.3 -1.989,-12.93 -0.828,-5.3 -1.243,-9.774 -1.243,-13.42 0,-10.275 1.078,-18.23 3.232,-23.865 0.663,-1.657 0.994,-2.817 0.994,-3.481 0,-0.331 -0.083,-0.497 -0.248,-0.497 -0.829,0 -2.155,1.409 -3.978,4.226 -1.657,2.652 -2.569,4.558 -2.734,5.718 -0.332,10.275 -0.663,16.324 -0.995,18.147 -1.16,8.95 -3.646,13.422 -7.457,13.422 -1.989,0 -4.475,-0.99 -7.458,-2.98 -1.16,-0.829 -1.823,-1.409 -1.989,-1.741 0.166,-0.331 0.497,-0.497 0.995,-0.497 0.994,0 2.983,0.331 5.966,0.994 2.983,0.498 4.972,0.663 5.966,0.497 0,-11.435 0.746,-19.804 2.237,-25.107 2.32,-8.121 7.209,-14.833 14.669,-20.137 -1.82,-11.766 -4.974,-21.876 -9.448,-30.328 C 87.557,11.9734 79.602,6.5864 69.99,7.5814 m 56.183,22.373 c -5.47,1.16 -9.7,8.038 -12.68,20.633 -2.49,10.441 -3.48,19.225 -2.98,26.351 0.66,8.949 0.74,13.424 0.25,13.424 0,-0.166 -0.09,-0.58 -0.25,-1.243 -1.83,-8.12 -2.99,-17.07 -3.48,-26.848 -0.67,4.806 -1,9.861 -1,15.164 0,11.436 1.83,25.113 5.47,41.023 1,3.48 2.32,8.7 3.98,15.66 1.33,5.63 1.99,11.02 1.99,16.15 0,3.15 -0.33,6.22 -1,9.2 -2.48,-14.42 -5.8,-31.73 -9.94,-51.95 -2.65,-13.261 -3.98,-22.873 -3.98,-28.84 0,-4.143 1,-10.689 2.99,-19.639 -5.31,4.144 -7.959,13.507 -7.959,28.091 0,6.464 0.662,15.498 1.988,27.098 0.991,4.64 -0.497,7.37 -4.474,8.2 -1.823,0.33 -5.635,0.17 -11.436,-0.49 -1.325,-0.17 -2.651,-0.17 -3.977,0 0.497,0 1.74,1.16 3.729,3.48 1.989,2.32 2.983,3.72 2.983,4.22 l 0,0.25 c -0.332,-0.17 -0.912,-0.5 -1.74,-0.99 -3.978,-2.66 -7.044,-5.89 -9.198,-9.7 -9.447,-16.74 -17.319,-36.459 -23.616,-59.164 0.331,-0.332 0.165,-1.077 -0.498,-2.238 -0.165,1.492 -0.248,3.066 -0.248,4.724 0,6.297 2.32,15.33 6.96,27.096 -2.983,-4.806 -6.132,-12.678 -9.446,-23.616 l -0.497,2.734 c 0.165,0.664 0.497,2.155 0.994,4.475 1.989,8.618 4.889,18.976 8.701,31.079 l 9.446,30.08 c -6.132,-14.26 -10.358,-24.7 -12.678,-31.33 -4.143,-11.764 -6.878,-22.62 -8.203,-32.563 -6.63,-2.486 -17.568,-5.386 -32.815,-8.701 -3.149,4.64 -4.723,9.115 -4.723,13.424 0,9.612 9.281,24.362 27.842,44.25 8.287,8.78 16.573,18.4 24.86,28.84 -0.498,-0.83 -2.983,-3.48 -7.458,-7.96 -6.464,-6.46 -13.176,-13.17 -20.136,-20.13 l -11.187,-13.43 c 0,0.33 0.249,1 0.746,1.99 3.812,7.46 9.446,15.99 16.904,25.61 -0.994,-1 -3.149,-2.82 -6.463,-5.47 -4.806,-3.82 -8.452,-7.79 -10.938,-11.94 0.165,2.99 0.911,6.8 2.237,11.44 0.663,1.49 4.806,5.47 12.43,11.93 3.48,3.98 7.043,7.87 10.689,11.69 4.806,4.97 8.701,8.36 11.684,10.19 5.469,2.48 13.507,6.54 24.114,12.18 3.148,2.82 8.037,6.3 14.667,10.44 3.816,1.33 7.126,1.99 9.946,1.99 5.3,0 11.18,-3.9 17.65,-11.69 6.46,-7.78 11.18,-11.68 14.17,-11.68 5.47,0 8.2,2.32 8.2,6.96 0,1.82 -0.66,4.97 -1.99,9.45 -1.32,4.31 -1.99,7.54 -1.99,9.69 0,5.47 2.74,8.62 8.21,9.45 3.97,0.66 6.54,0.66 7.7,0 1.16,-0.66 2.32,-2.74 3.48,-6.22 1.16,-3.48 1.99,-5.55 2.49,-6.21 0.66,-0.83 1.57,-1.66 2.73,-2.49 2.16,-0.16 3.82,1.5 4.98,4.98 1.16,3.48 2.32,5.46 3.48,5.96 1.16,0.33 2.48,0.5 3.97,0.5 5.14,0 9.62,-2.65 13.43,-7.96 l 2.73,0.5 c 0.33,0.66 1,1.74 1.99,3.23 1.16,-0.33 2.65,-1.24 4.48,-2.73 1.49,-2.32 2.23,-4.72 2.23,-7.21 0,-2.82 -1.07,-5.72 -3.23,-8.7 -2.65,-3.65 -4.14,-5.97 -4.47,-6.96 -0.67,-3.48 0.58,-5.22 3.73,-5.22 3.64,0 6.38,1.16 8.2,3.48 l 2.24,0.49 c 0.49,-0.49 1.24,-2.32 2.23,-5.46 -1.16,0.49 -2.15,0.74 -2.98,0.74 -0.33,-0.33 -2.65,-1.32 -6.96,-2.98 -0.66,-0.17 -1.74,-0.17 -3.23,0 -0.33,0.16 -0.66,0.41 -1,0.74 -1.82,0.34 -4.39,1.25 -7.7,2.74 -0.33,0.5 -1.25,2.32 -2.74,5.47 0,0.33 0.75,1.24 2.24,2.73 4.31,4.48 6.46,8.37 6.46,11.69 0,1.16 -0.66,1.74 -1.98,1.74 -1.17,0 -2.82,-0.5 -4.98,-1.5 l -1.49,5.47 c -0.66,2.32 -1.66,3.57 -2.98,3.73 -3.65,0.83 -6.96,-2.07 -9.95,-8.7 -1.98,-4.64 -4.14,-6.96 -6.46,-6.96 -1.82,0 -4.47,2.4 -7.95,7.21 -3.32,4.81 -5.22,7.29 -5.72,7.46 -2.32,0.33 -4.31,-0.83 -5.97,-3.48 -1.49,-2.65 -2.07,-5.14 -1.74,-7.46 0.83,-6.13 1.25,-10.27 1.25,-12.43 0,-8.29 -3.9,-13.09 -11.69,-14.42 -1.66,-0.33 -3.06,-0.49 -4.22,-0.5 -4.65,0.01 -7.13,1.58 -7.46,4.73 -0.33,2.98 -0.58,5.96 -0.75,8.95 -1.16,4.97 -7.12,7.46 -17.9,7.46 -5.8,0 -10.935,-0.67 -15.41,-1.99 -1.988,-0.83 -5.137,-2.07 -9.446,-3.73 2.32,0.49 3.812,0.83 4.475,0.99 8.617,2.16 15.661,3.23 21.131,3.23 8.62,0 13.42,-2.56 14.42,-7.7 0.16,-2.99 0.91,-7.13 2.23,-12.43 -3.97,-1.83 -6.38,-4.23 -7.2,-7.21 -0.5,-1.66 -0.67,-5.14 -0.5,-10.44 0.16,-5.47 0.16,-9.28 0,-11.44 -0.33,-3.81 -1.24,-11.85 -2.74,-24.111 -1.32,-10.607 -1.99,-18.976 -1.99,-25.108 0,-7.955 0.83,-15.081 2.49,-21.379 0.5,-0.828 2.32,-4.226 5.47,-10.192 2.82,-5.303 4.89,-7.955 6.21,-7.955 0.83,0 1.83,0.248 2.99,0.745 -1.66,-2.154 -3.48,-3.065 -5.47,-2.734 m 4.97,28.34 c -0.66,2.651 -3.23,8.038 -7.71,16.158 -3.48,6.298 -5.22,11.85 -5.22,16.656 0,2.32 0.42,5.8 1.25,10.44 0.83,4.64 1.24,8.12 1.24,10.44 -0.17,0.17 -0.25,0.33 -0.25,0.5 0,0.33 0.5,0.74 1.49,1.24 0.5,-3.48 2.32,-11.52 5.47,-24.112 2.49,-9.943 3.73,-17.981 3.73,-24.113 0.17,-1.16 0.17,-3.563 0,-7.209 m -5.47,51.454 c -2.15,8.29 -3.23,14.67 -3.23,19.15 0,1.32 0.25,1.98 0.75,1.98 0.49,-0.16 0.99,-0.66 1.49,-1.49 3.15,-4.8 4.72,-7.79 4.72,-8.95 0,-0.66 -1.24,-4.22 -3.73,-10.69 m -4.97,9.95 0.75,0.99 c -0.34,-0.66 -0.58,-0.99 -0.75,-0.99 m 12.68,2.73 c -2.32,0.67 -5.39,5.97 -9.2,15.91 l -0.75,3.23 c 2.16,-3.97 5.47,-6.54 9.95,-7.7 0.5,-0.17 1.24,-0.33 2.24,-0.5 -5.14,2.32 -8.04,6.71 -8.71,13.18 1.16,0.33 5.56,0.74 13.18,1.24 6.3,0.5 11.19,5.14 14.67,13.92 1.32,-3.81 1.99,-7.46 1.99,-10.94 0,-10.44 -5.22,-15.91 -15.67,-16.4 1.66,-0.5 3.57,-0.75 5.72,-0.75 1.16,0 2.49,0.08 3.98,0.25 -3.98,-7.79 -8.95,-11.69 -14.92,-11.69 -0.99,0 -1.82,0.09 -2.48,0.25 m -65.63,11.94 c 0.331,0.33 0.165,0.74 -0.498,1.24 0.166,-0.83 0.332,-1.24 0.498,-1.24 m 15.412,29.08 0,0.99 c -0.166,-0.16 -0.248,-0.33 -0.248,-0.49 0,-0.17 0.082,-0.33 0.248,-0.5 m 0.995,0.99 c 0.331,0 0.58,0.09 0.745,0.25 -0.165,0.17 -0.414,0.25 -0.745,0.25 -0.332,0 -0.498,-0.08 -0.498,-0.25 0,-0.16 0.166,-0.25 0.498,-0.25 m 85.763,7.71 c 4.97,1.49 8.45,4.39 10.44,8.7 0.33,0.17 0.75,0.58 1.25,1.24 0.82,-4.3 1.24,-7.37 1.24,-9.19 0,-4.81 -1.83,-7.21 -5.47,-7.21 -2.32,0 -4.81,2.15 -7.46,6.46 m -15.66,2.24 c -0.5,1.82 -0.58,4.06 -0.25,6.71 0.5,3.15 1.33,4.72 2.49,4.72 0.66,0 1.49,-0.66 2.48,-1.99 1,-1.49 1.49,-2.65 1.49,-3.48 0,-0.82 -0.99,-1.9 -2.98,-3.23 -1.82,-1.49 -2.9,-2.4 -3.23,-2.73";
     String svgPathManopla = "M1960.9087,1276.0566c-19.2501-2.9022-38.1486-5.7212-57.0358-8.6123c-9.0536-1.386-18.1001-2.8282-27.1261-4.3822   c-51.7144-8.9039-103.5544-16.8087-155.9297-20.807c-18.7683-1.4329-37.4856-3.5247-56.2351-5.2185   c-20.3867-1.8416-40.8511-3.0245-61.1542-5.5282c-15.035-1.8542-30.1028-3.3568-45.1458-5.0966   c-23.6584-2.7362-47.344-5.2395-71.0229-7.7946c-17.8597-1.9271-35.6095-4.7102-53.4313-6.89   c-43.1874-5.282-85.6019-14.7214-128.2585-22.9236c-38.2649-7.3578-76.7017-13.8145-115.2767-19.4065   c-26.1934-3.797-52.3114-8.1351-78.5394-11.6647c-15.1572-2.0398-30.4969-2.6847-45.6992-4.4366   c-24.203-2.7893-48.4983-3.283-72.8109-3.798c-32.4039-0.6863-64.5641,2.1896-96.639,6.3295   c-27.3875,3.5349-54.786,7.0143-82.1133,10.976c-19.6748,2.8523-38.3923,9.371-57.1212,15.9039   c-33.9922,11.8571-68.7667,21.0896-103.836,29.137c-37.2666,8.5518-75.2034,10.032-113.2348,9.3218   c-12.4612-0.2327-24.8776-2.5641-37.344-2.929c-8.3177-0.2434-16.8631-0.1895-24.7763-1.8376   c-12.3837-2.5797-21.4183,2.7697-30.3696,9.1615c-13.4845,9.6285-28.4842,11.8282-44.2793,9.4929   c-13.3502-1.9738-25.0754-7.8383-34.1706-18.0342c-3.0938-3.4681-6.2639-4.4354-10.5976-3.3413   c-9.149,2.3101-17.9656,0.988-26.0672-3.6616c-5.7078-3.276-11.504-4.2848-17.7521-2.5751   c-7.0144,1.9196-13.5398,0.7008-19.7605-2.7275c-16.813-9.266-33.5038-18.6652-45.3925-34.4667   c-6.1101-8.1208-14.6423-13.3602-22.8176-19.1771c-22.9092-16.3002-34.2972-39.0488-33.8304-67.0454   c0.2313-13.8679,8.0078-25.1515,16.4602-35.693c2.2697-2.8306,6.7427-5.6298,5.8328-8.7452   c-0.9019-3.0883-6.1278-1.5637-9.3955-2.3348c-6.0253-1.4219-11.8076-3.6195-17.3674-6.2529   c-22.0294-10.4346-43.2624-22.1484-62.0892-37.9119c-22.8255-19.1116-34.7176-42.7788-34.6195-73.0996   c0.0733-22.6453,7.6525-41.2412,23.4175-56.9195c3.7887-3.7679,7.9206-7.0916,13.1588-8.8385   c1.8719-0.6243,4.9457-0.8489,4.5614-3.6565c-0.3129-2.2861-3.1136-2.1888-4.994-2.4727   c-23.5622-3.5573-42.3307-15.7602-59.3642-31.7504c-21.2852-19.9816-29.0188-43.775-26.6297-72.9543   c2.6438-32.29,19.5051-55.1516,42.3952-75.2577c5.1075-4.4861,11.2941-6.9658,18.0395-8.0027   c1.2042-0.1851,2.9854,0.2581,3.2585-1.4551c0.2044-1.2827-1.2535-1.8221-2.2315-2.4014   c-3.0075-1.7817-5.9316-3.7554-9.0876-5.2263c-14.6369-6.8218-26.3154-17.4255-37.3169-28.9026   c-9.4992-9.9098-14.2015-21.6461-12.8274-35.4644c1.2683-12.7544,2.3526-25.537,5.2907-38.0712   c2.7356-11.6702,8.2331-21.7654,16.8178-30.1211c22.3448-21.7489,47.5742-39.6685,74.468-55.2485   c12.522-7.2542,26.917-8.42,40.86-10.7031c10.3658-1.6972,20.8314-2.0714,31.3419-1.1622   c20.8684,1.8051,42.0335,0.343,62.5642,5.8821c8.8588,2.39,17.6091,4.9539,25.8038,9.2356   c7.6904,4.0182,16.0495,3.028,23.9813,1.5416c14.2422-2.669,28.374-5.7792,42.8696-6.973   c7.1735-0.5907,13.7631-3.8488,20.5779-5.994c8.5938-2.7053,17.1945-3.3875,26.136-2.3723   c8.4305,0.9572,16.9397,1.2358,25.4193,1.727c1.2112,0.0702,2.8251,0.6946,3.5493-0.9027c0.6182-1.3635-0.2124-2.57-0.9819-3.6764   c-0.3796-0.5457-0.7866-1.0784-1.2314-1.5717c-23.7498-26.3445-46.3463-53.8215-74.3354-76.0139   c-6.0416-4.7903-11.6005-10.0916-16.1899-16.2389c-11.989-16.0585-26.7222-29.5748-40.185-44.2704   c-23.1526-25.2727-39.2006-54.7329-50.3454-87.194c-10.8451-31.5881-15.1596-63.9439-16.0946-97.1466   c-0.5088-18.0664-1.3277-35.9184,3.6182-53.5456c4.9464-17.6289,13.4815-32.5816,30.1273-41.7039   c5.3197-2.9153,10.9241-4.8667,17.09-5.02c4.1347-0.1028,7.9457,0.5016,11.1362,3.4264c0.8408,0.7707,1.971,1.8277,2.9203,1.7809   c6.361-0.3139,8.5224,4.4076,11.6478,8.6286c16.8573,22.7662,29.9568,47.6393,41.3376,73.4332   c4.2314,9.5903,10.8008,17.3688,18.1927,24.0588c10.2816,9.3055,19.2055,19.8644,29.279,29.3222   c6.6756,6.2676,12.9447,12.7999,21.4164,16.9395c6.2539,3.0558,11.7429,7.5702,17.0443,12.1759   c3.6248,3.1491,6.4286,6.8525,7.3777,11.5885c0.4739,2.3647,1.5284,3.3968,3.8141,3.7787   c1.6113,0.2692,3.4119,0.6776,4.6599,1.6343c6.3224,4.8468,12.5175,9.8616,18.7042,14.8828   c3.2238,2.6164,1.7939,8.098,4.6975,9.9541c2.8152,1.7996,7.0513,1.5033,9.8638,4.1821   c16.2218,15.4503,35.6864,26.6301,53.2061,40.3858c25.5119,20.0307,53.1791,36.6707,82.631,50.2644   c19.0787,8.8058,36.5673,19.7776,51.2875,34.9934c8.6239,8.9142,16.0958,18.6519,22.814,29.0257   c27.5943,42.6087,60.2791,81.3354,91.9421,120.855c25.108,31.338,51.0532,61.98,76.4245,93.0965   c3.0451,3.7347,5.5494,7.9051,8.4852,11.735c23.9622,31.2598,56.5706,48.7926,93.743,59.2244   c23.1526,6.4974,46.6026,8.9227,70.6663,8.0917c22.7926-0.787,45.6702-0.7383,68.4546,0.2422   c31.9575,1.3754,63.9489,2.2955,95.8929,2.448c30.4575,0.1454,60.9233-0.0988,91.3713,0.8304   c18.3311,0.5596,36.6552,0.4468,54.9812,0.4179c36.9655-0.0583,73.9519,0.3953,110.8895-0.7059   c33.2747-0.9919,66.6238-1.1829,99.7915-4.9335c7.4037-0.8372,14.9712-0.1381,22.4578-0.3465   c24.9587-0.6951,49.87-2.4407,74.8256-3.3373c26.7579-0.9613,53.515-2.5844,80.1949-4.838   c17.7386-1.4984,35.551-2.1399,53.2253-4.1466c20.1473-2.2873,40.2394-5.1713,60.2733-8.3189   c24.1409-3.7929,48.2478-7.8584,72.2563-12.4041c7.5157-1.423,15.1796-1.9935,22.5785-3.9826   c3.9736-1.0682,5.0303,0.2704,5.0165,4.3336c-0.1405,41.3259-0.0856,82.6525-0.0856,123.9789c0,163.4726,0,326.9451,0,490.4178   C1960.9087,1272.2338,1960.9087,1274.212,1960.9087,1276.0566z";
     String svgPathEstrela = "m0-100l22.4514 69.0983 72.6543 0-58.7781 42.7051 22.4509 69.0983-58.7785-42.7051-58.7785 42.7051 22.4509-69.0983-58.7781-42.7051 72.6543 0z";
-    private String URLVIDEO;
-    private String URLAUDIO;
+    String URLVIDEO;
+    String URLAUDIO;
     Button botaoTocaAudio;
     Label labelTocaAudio;
     int indice;
@@ -206,6 +195,7 @@ public class PucflixPlus extends Application {
         SVGPath bolaFutebol;
         bolaFutebol = new SVGPath();
         defineAtributosSVGPATH(bolaFutebol, svgPathBolaFutebol, Color.BLACK, (float) 0.015);
+        //defineAtributosSVGPATH(bolaFutebol, svgPathBolaFutebol, Color.BLACK, (float) 10.0);
 
         //A imagem vetorial que sera usada como icone de botao tem seus valores ajustados
         SVGPath tesoura;
@@ -251,68 +241,6 @@ public class PucflixPlus extends Application {
         SVGPath estrela;
         estrela = new SVGPath();
         defineAtributosSVGPATH(estrela, svgPathEstrela, Color.WHITE, (float) 0.5);
-
-        ///*
-        //Um botao responsavel pelo texto na tela de aventura tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic = new Group(bluray);
-        botaoAventura1 = new Button();
-        botaoAventura1.setGraphic(graphic);
-
-        //Um botao responsavel pelo texto na tela de aventura tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic2 = new Group(chapel);
-        botaoAventura2 = new Button();
-        botaoAventura2.setGraphic(graphic2);
-
-        //Um botao responsavel pelo texto na tela de comedia tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic3 = new Group(bolaFutebol);
-        botaoComedia1 = new Button();
-        botaoComedia1.setGraphic(graphic3);
-
-        //Um botao responsavel pelo texto na tela de comedia tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic4 = new Group(tesoura);
-        botaoComedia2 = new Button();
-        botaoComedia2.setGraphic(graphic4);
-
-        //Um botao responsavel pelo texto na tela de suspence tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic5 = new Group(pessoas);
-        botaoSuspence1 = new Button();
-        botaoSuspence1.setGraphic(graphic5);
-
-        //Um botao responsavel pelo texto na tela de suspence tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic6 = new Group(tenda);
-        botaoSuspence2 = new Button();
-        botaoSuspence2.setGraphic(graphic6);
-
-        //Um botao responsavel pelo texto na tela de romance tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic7 = new Group(coracao);
-        botaoRomance1 = new Button();
-        botaoRomance1.setGraphic(graphic7);
-
-        //Um botao responsavel pelo texto na tela de romance tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic8 = new Group(casal);
-        botaoRomance2 = new Button();
-        botaoRomance2.setGraphic(graphic8);
-
-        //Um botao responsavel pelo texto na tela de terror tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic9 = new Group(crianca);
-        botaoTerror1 = new Button();
-        botaoTerror1.setGraphic(graphic9);
-
-        //Um botao responsavel pelo texto na tela de terror tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic10 = new Group(fantasma);
-        botaoTerror2 = new Button();
-        botaoTerror2.setGraphic(graphic10);
-
-        //Um botao responsavel pelo texto na tela de ficcao tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic11 = new Group(manopla);
-        botaoFiccao1 = new Button();
-        botaoFiccao1.setGraphic(graphic11);
-
-        //Um botao responsavel pelo texto na tela de ficcao tem a imagem vetorial anexada a ele, assim se tornando o novo icone clicavel 
-        Group graphic12 = new Group(estrela);
-        botaoFiccao2 = new Button();
-        botaoFiccao2.setGraphic(graphic12);
-        //*/
 
         //Um botao responsavel pela reproducao do audio das sinopses dos filmes
         botaoTocaAudio = new Button(">");
@@ -454,12 +382,12 @@ public class PucflixPlus extends Application {
             botaoTocaAudio.setText(">");
 
             //Mesmo funcionamento dos ifs das linhas anteriores porem encadeado para economia de linhas
-            removeBotoesLabelsSeExistem(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2);
-            removeBotoesLabelsSeExistem(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2);
-            removeBotoesLabelsSeExistem(botaoSuspence1, botaoSuspence2, labelSuspence1, labelSuspence2);
-            removeBotoesLabelsSeExistem(botaoRomance1, botaoRomance2, labelRomance1, labelRomance2);
-            removeBotoesLabelsSeExistem(botaoTerror1, botaoTerror2, labelTerror1, labelTerror2);
-            removeBotoesLabelsSeExistem(botaoFiccao1, botaoFiccao2, labelFiccao1, labelFiccao2);
+            removeObjetosVetoriaisELabelsSeExistem(bluray, chapel, labelAventura1, labelAventura2);
+            removeObjetosVetoriaisELabelsSeExistem(bolaFutebol, tesoura, labelComedia1, labelComedia2);
+            removeObjetosVetoriaisELabelsSeExistem(pessoas, tenda, labelSuspence1, labelSuspence2);
+            removeObjetosVetoriaisELabelsSeExistem(coracao, casal, labelRomance1, labelRomance2);
+            removeObjetosVetoriaisELabelsSeExistem(crianca, fantasma, labelTerror1, labelTerror2);
+            removeObjetosVetoriaisELabelsSeExistem(manopla, estrela, labelFiccao1, labelFiccao2);
 
             //Conjunto de ifs que verificam o conteudo selecionado no comboBox e definem um indice para lista de trailers com base na seleçao
             if (((String) comboUm.getSelectionModel().getSelectedItem()).equals("Aventura")) {
@@ -503,7 +431,10 @@ public class PucflixPlus extends Application {
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioAventura1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoAventura1, botaoAventura2, labelAventura1, labelAventura2, Color.BLUE, Color.CORNFLOWERBLUE, Color.CHOCOLATE, Color.BURLYWOOD, bluray, chapel);
+
+                adiciona2BotoesInterativosNoPainel(labelAventura1, labelAventura2, Color.BLUE, Color.CORNFLOWERBLUE, Color.CHOCOLATE, Color.BURLYWOOD, bluray, chapel);
+                defineCordenadasXYdeSVG(500, -950, bluray);
+                defineCordenadasXYdeSVG(600, 250, chapel);
 
             }
             if (indice == 1) {
@@ -511,37 +442,46 @@ public class PucflixPlus extends Application {
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioComedia1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoComedia1, botaoComedia2, labelComedia1, labelComedia2, Color.BLACK, Color.DARKGRAY, Color.GREEN, Color.LAWNGREEN, bolaFutebol, tesoura);
+                adiciona2BotoesInterativosNoPainel(labelComedia1, labelComedia2, Color.BLACK, Color.DARKGRAY, Color.GREEN, Color.LAWNGREEN, bolaFutebol, tesoura);
 
+                defineCordenadasXYdeSVG(-500, -500, bolaFutebol);//nao acertei as cordenadas ainda//NAO ESQUECER
+                defineCordenadasXYdeSVG(550, 200, tesoura);
             }
             if (indice == 2) {
 
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioSuspence1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoSuspence1, botaoSuspence2, labelSuspence1, labelSuspence2, Color.RED, Color.PALEVIOLETRED, Color.YELLOW, Color.LIGHTYELLOW, pessoas, tenda);
-
+                adiciona2BotoesInterativosNoPainel(labelSuspence1, labelSuspence2, Color.RED, Color.PALEVIOLETRED, Color.YELLOW, Color.LIGHTYELLOW, pessoas, tenda);
+                defineCordenadasXYdeSVG(525, 25, pessoas);
+                defineCordenadasXYdeSVG(650, 250, tenda);
             }
             if (indice == 3) {
 
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioRomance1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoRomance1, botaoRomance2, labelRomance1, labelRomance2, Color.SPRINGGREEN, Color.PALEGREEN, Color.DEEPPINK, Color.HOTPINK, coracao, casal);
+                adiciona2BotoesInterativosNoPainel(labelRomance1, labelRomance2, Color.SPRINGGREEN, Color.PALEGREEN, Color.DEEPPINK, Color.HOTPINK, coracao, casal);
+                defineCordenadasXYdeSVG(525, 0, coracao);
+                defineCordenadasXYdeSVG(650, 250, casal);//falta arrumar as cordenadas//NAO ESQUECER
             }
             if (indice == 4) {
 
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioTerror1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoTerror1, botaoTerror2, labelTerror1, labelTerror2, Color.DODGERBLUE, Color.DEEPSKYBLUE, Color.DARKVIOLET, Color.VIOLET, crianca, fantasma);
+                adiciona2BotoesInterativosNoPainel(labelTerror1, labelTerror2, Color.DODGERBLUE, Color.DEEPSKYBLUE, Color.DARKVIOLET, Color.VIOLET, crianca, fantasma);
+                defineCordenadasXYdeSVG(350, 0, crianca);
+                defineCordenadasXYdeSVG(625, 200, fantasma);
             }
             if (indice == 5) {
 
                 //um botao é adicionado no painel, ao preciona-lo o audio do argumento é tocado
                 adicionaBotaoQueTocaAudio(botaoTocaAudio, audioFiccao1);
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
-                adiciona2BotoesInterativosNoPainel(botaoFiccao1, botaoFiccao2, labelFiccao1, labelFiccao2, Color.GOLD, Color.PALEGOLDENROD, Color.WHITE, Color.WHITESMOKE, manopla, estrela);
+                adiciona2BotoesInterativosNoPainel(labelFiccao1, labelFiccao2, Color.GOLD, Color.PALEGOLDENROD, Color.WHITE, Color.WHITESMOKE, manopla, estrela);
+                defineCordenadasXYdeSVG(-300, -500, manopla);
+                defineCordenadasXYdeSVG(700, 300, estrela);
             }
 
         });
@@ -568,35 +508,47 @@ public class PucflixPlus extends Application {
         label.setTextFill(cor);
     }
 
-    public void removeBotoesLabelsSeExistem(Button botao1, Button botao2, Label label1, Label label2) {
+    public void removeObjetosVetoriaisELabelsSeExistem(SVGPath svg1, SVGPath svg2, Label label1, Label label2) {
         //remove botoes se eles estao presentes, uma unica chamada economiza todas essas linhas tornando o codigo mais limpo
-        if (painel.getChildren().contains(botao1)) {
-            painel.getChildren().remove(botao1);
+        if (painel.getChildren().contains(svg1)) {
+            painel.getChildren().remove(svg1);
         }
         if (painel.getChildren().contains(label1)) {
             painel.getChildren().remove(label1);
         }
-        if (painel.getChildren().contains(botao2)) {
-            painel.getChildren().remove(botao2);
+        if (painel.getChildren().contains(svg2)) {
+            painel.getChildren().remove(svg2);
         }
         if (painel.getChildren().contains(label2)) {
             painel.getChildren().remove(label2);
         }
     }
 
-    public void adiciona2BotoesInterativosNoPainel(Button botao1, Button botao2, Label label1, Label label2, Color botao1cor1, Color botao1cor2, Color botao2cor1, Color botao2cor2, SVGPath iconeBotao1SVG, SVGPath iconeBotao2SVG) {
+    public void adiciona2BotoesInterativosNoPainel(Label label1, Label label2, Color botao1cor1, Color botao1cor2, Color botao2cor1, Color botao2cor2, SVGPath iconeBotao1SVG, SVGPath iconeBotao2SVG) {
         ///*
         //de acordo com indice, um genero sempre é selecionado, a função é chamada com diferentes parametros relacionados ao conteudo e genero
-        painel.getChildren().add(botao1);//adiciona o primeiro botao ao painel
-        botao1.setTranslateX(650);
-        botao1.setTranslateY(100);
+        painel.getChildren().add(iconeBotao1SVG);//adiciona o primeiro botao ao painel
+        painel.getChildren().add(iconeBotao2SVG);//adiciona o segundo botao ao painel
+/*
+        
+        iconeBotao1SVG.setTranslateX(650);
+        iconeBotao1SVG.setTranslateY(100);
 
-        painel.getChildren().add(botao2);//adiciona o segundo botao ao painel
-        botao2.setTranslateX(650);
-        botao2.setTranslateY(250);
+        
+        iconeBotao2SVG.setTranslateX(650);
+        iconeBotao2SVG.setTranslateY(250);
 
+//*/
+
+        //painel.getChildren().add(botao1);//adiciona o primeiro botao ao painel
+        //botao1.setTranslateX(650);
+        //botao1.setTranslateY(100);
+        //painel.getChildren().add(botao2);//adiciona o segundo botao ao painel
+        //botao2.setTranslateX(650);
+        //botao2.setTranslateY(250);
         //Se o botao de aventura for precionado uma informação textual é exibida atravez de um label, caso o label ja esteja no painel ele é retirado
-        botao1.setOnAction((ActionEvent e) -> {
+        iconeBotao1SVG.setOnMouseClicked((MouseEvent e) -> {
+            //botao1.setOnAction((ActionEvent e) -> {
             //System.out.println("botao funciona");
             if (painel.getChildren().contains(label2)) {
                 painel.getChildren().remove(label2);//se o outro botao estava exibido sua label antes de apertar esse, ela é removida
@@ -613,7 +565,8 @@ public class PucflixPlus extends Application {
             }
         });
 
-        botao2.setOnAction((ActionEvent e) -> {//segue a mesma logica do botao 1 de forma inversa
+        iconeBotao2SVG.setOnMouseClicked((MouseEvent e) -> {
+            //botao2.setOnAction((ActionEvent e) -> {//segue a mesma logica do botao 1 de forma inversa
             //System.out.println("botao funciona");
             if (painel.getChildren().contains(label1)) {
                 painel.getChildren().remove(label1);
@@ -650,5 +603,10 @@ public class PucflixPlus extends Application {
             }
         });
 
+    }
+
+    public void defineCordenadasXYdeSVG(int x, int y, SVGPath svg) {
+        svg.setTranslateX(x);
+        svg.setTranslateY(y);
     }
 }

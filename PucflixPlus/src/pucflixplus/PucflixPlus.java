@@ -463,7 +463,7 @@ public class PucflixPlus extends Application {
                 //são adicionados 2 botes cada um com uma label associada, esses botoes tem icones sgv que tem seus atributos de cores alterados como um interruptor de uma casa
                 adiciona2BotoesInterativosNoPainel(labelRomance1, labelRomance2, Color.SPRINGGREEN, Color.PALEGREEN, Color.DEEPPINK, Color.HOTPINK, coracao, casal);
                 defineCordenadasXYdeSVG(525, 0, coracao);
-                defineCordenadasXYdeSVG(650, 250, casal);//falta arrumar as cordenadas//NAO ESQUECER
+                defineCordenadasXYdeSVG(180, -550, casal);
             }
             if (indice == 4) {
 
